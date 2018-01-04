@@ -1,0 +1,40 @@
+using System;
+
+public class Size
+{
+	public static string getMd5(String path)
+	{
+        using (var md5 = System.Security.Cryptography.MD5.Create())
+        {
+            using (var stream = System.IO.File.OpenRead(path))
+            {
+                var hash = md5.ComputeHash(stream);
+                return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+            }
+        }
+    }
+
+    public static string getSha1(String path)
+    {
+        using (var sha1 = System.Security.Cryptography.SHA1.Create())
+        {
+            using (var stream = System.IO.File.OpenRead(path))
+            {
+                var hash = sha1.ComputeHash(stream);
+                return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+            }
+        }
+
+    }
+
+    
+
+    // write a function  to calculate SHa1 hash
+
+
+
+
+    // write a function to return the size of given file
+
+
+}
