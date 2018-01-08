@@ -30,6 +30,20 @@ public class Size
     
 
     // write a function  to calculate SHa1 hash
+	
+public String SHA1(String path)
+	{
+
+		System.Security.Cryptography.SHA1 sha1 = 			System.Security.Cryptography.SHA1.Create();
+		byte[] bytes = System.Text.Encoding.ASCII.GetBytes	(path);
+		byte[] hash = sha1.ComputeHash(bytes);
+ 
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < hash.Length; i++)
+			sb.Append(hash[i].ToString("x2"));
+ 
+		return sb.ToString();
+	}
 
 
 
